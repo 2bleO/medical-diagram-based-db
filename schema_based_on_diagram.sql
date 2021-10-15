@@ -21,3 +21,12 @@ CREATE TABLE invoices (
     FOREIGN KEY (medical_history_id) REFERENCES medical_histories(id),
     PRIMARY KEY (id)
 );
+
+CREATE TABLE medical_histories  (
+    id               INT GENERATED ALWAYS AS IDENTITY,
+    admitted_at      DATE, 
+    patient_id       INT,    
+    status           VARCHAR(100),
+    FOREIGN KEY (patient_id) REFERENCES patients(id),
+    PRIMARY KEY (id)
+);
